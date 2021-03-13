@@ -1,0 +1,51 @@
+* Microsoft DevOps Solutions: Designing and implementing Telemetry
+
+Good telemetry about your application enables good decisions to be made about resource investment.
+
+Azure has numerous metrics based on the various types of resource in addition to services to provide telemetry for your custom code.
+
+** Azure metrics and logs
+
+Azure has a large number of metrics and logs
+
+These vary by resource type
+
+Azure resource metrics are stored in the native metrics store for 90 days and can optionally be sent to a target
+
+Azure *resource logs* must be sent to a target!!!
+
+*** Sources of diagnostics
+
+AAD
+Audit Sign-in
+Subscription
+Activity Log
+Resources
+Metrics Logs
+Guest/Extension/Agent
+
+** Key performance indicators
+
+For each type of resource there are key metrics and logs that help define its overall performance health.
+
+There are documents that outline some of these
+
+Azure Monitor Insights provides the best KPIs and many include customizable workbooks
+- Check what insights is following. It's usually important.
+
+Also includes mapping for some services
+
+** Alerting with Azure Monitor
+
+Azure Monitoring provides centralized alerting capabilites built on
+- Alert rules. Conditions to alert with optional action group.
+- Action groups. Actions to perform.
+- *Action rules*. Alert conditions to trigger or suppress action group.
+
+*** Alerting expanded
+
+[[./alertingexpanded.png]]
+
+** Distributed Tracing
+
+

@@ -1,0 +1,112 @@
+* Microsoft DevOps Solutions: Designing and Implementing Logging
+
+** Types op log in Azure
+
+** Log aggregation
+
+Some components hasve their own native log store but can be difficult to work with due to various reasons
+- storage locations and format
+- retention
+- permissions
+- integration for analysis, alerting
+
+Ideally logs we care about should be aggregated to a common store.
+
+** Azure metrics and logs
+
+Azure has a large number of metrics and logs
+
+These vary by resource type
+
+Azure resource metrics are stored in the native metrics store for 90 days and can optionally be sent to a target
+
+Azure *resource logs* must be sent to a target
+
+*** Azure diagnostic targets
+
+**** Azure storage
+- Good for long term, cheap retention
+
+***** Diagnostic settings: archive to a storage account
+
+**** Event hub
+Good to send to external solutions
+
+**** Log analytics
+Good for storage and analytical analysis
+
+*** Diagnostic settings
+
+Most resources have a common diagnostic setting options
+
+This enables combinations of targets to be configured for available logs and/or metrics
+
+Multiple sets can be defined to target different instances of a target type
+
+Can be configured through many means including Azure Policy
+
+
+- azure policy
+
+** Sources of diagnostics
+
+** Log analytics workspace
+
+A subscription can have multiple workspace instances
+
+An instance lives within a specific region
+
+You pay based on ingestion, retention and actions performed
+
+Data is stored as tables based on the incoming data
+
+KQL used to query and then visualize
+
+** Access control to logs
+
+Companies may opt for a centralized strategy or decentralized
+
+Two permissions required to send to a workspace instance from resource
+- Microsoft.OperationalInsights/workspaces/read
+- Microsoft.OperationalInsights/workspaces/sharedKeys/action
+
+Two access modes are available: workspace-context (you go to workspace analytics and click logs) and resource-context (you go to a resource like virtual machine and click logs)
+
+*** Access control modeling
+Require workspace permissions
+- No granular RBAC
+- Must be granted permission to workspace or tables
+
+OR
+
+Use resource or workspace permissions
+- Granular RBAC
+- Default
+
+
+** Implementing crash analytics
+
+*** Visual Studio App center
+
+- Seems these are for mobile or desktop applications, not for web applications.
+
+Used to manager the lifecycle of client applications
+
+Supports a range of platforms
+
+Minimal code changes requirements
+
+Enables tracking of user behavior and gathering of crash information
+
+
+**** Could this be used in Virtual Hospital?
+
+*** Google Firebase Crashlytics
+
+*** Instabug
+
+*** Flurry Analytics
+
+[[./othercrashsolutions.png]]
+
+*** Many others!
